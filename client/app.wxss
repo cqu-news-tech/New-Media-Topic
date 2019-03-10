@@ -1,0 +1,129 @@
+/**app.wxss**/
+
+.container {
+    width: 100vw;
+    height: 100%;
+    padding: 2vw 3vw;
+}
+
+view {
+    box-sizing: border-box;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.flex-center {
+    align-items: center;
+}
+
+.flex-around {
+    justify-content: space-around !important;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.width-full {
+    width: 100%;
+}
+
+.width-screen {
+    width: 100vw;
+}
+
+.icon image {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.title {
+    font-size: 1rem;
+}
+
+.text {
+    font-size: 0.9rem;
+}
+
+.list-action {
+    height: 2rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #fff;
+}
+
+.main-action {
+    position: fixed;
+    z-index: 999;
+    width: 100vw;
+    background: #fff;
+    padding: 3vw;
+    bottom: 0;
+    left: 0;
+    flex-wrap: wrap;
+    border-top: 1px solid #f2f2f2;
+}
+.main-action button {
+    margin: 0.3rem 0; 
+}
+
+.main-btn {
+    background: #1296db;
+    color: #fff;
+    border-radius: 0.2rem;
+}
+
+.sub-btn {
+    width: 45.5vw;
+}
+
+.main-btn-tap {
+    background: #2980b9;
+}
+
+.gray {
+    color: #bfbfbf;
+}
+
+.blue {
+    color: #1296db;
+}
+
+.green {
+    color: #21b065;
+}
+
+.yellow {
+    color: #fbb03b;
+}
+
+.red {
+    color: #fe4e4e;
+}
+.green-bg {
+    background: #21b065;
+}
+.red-bg {
+    background: #fe4e4e;
+}
+.nothing {
+    padding: 25vw 0;
+}
+.nothing image {
+    width: 50vw;
+    height: 50vw;
+}
+.nothing .text {
+    color: #bfbfbf;
+}

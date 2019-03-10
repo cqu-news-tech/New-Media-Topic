@@ -1,0 +1,132 @@
+/* pages/topic/plan.wxss */
+.container {
+    margin-top: 15vw;
+}
+input, .area-input textarea, picker {
+    box-sizing: border-box;
+    padding: 2vw 4vw;
+    margin-top: 4vw;
+    margin-bottom: 8vw;
+    border: 1px solid #f2f2f2;
+    border-radius: 0.2rem;
+}
+
+.title {
+    color: #1296db;
+    font-size: 0.9rem;
+}
+
+.inline-input input {
+    height: 12vw;
+}
+.area-input {
+    line-height: 1.5rem;
+}
+
+.focus {
+    border-color: #1296db !important;
+}
+
+.action-review {
+    background: #1296db;
+    color: #fff;
+}
+
+.comments-area {
+    margin-bottom:30vw;
+}
+.comment {
+    margin: 4vw 0;
+}
+
+.comment .name {
+    width: 90%;
+    text-align: left;
+}
+
+.comment .content {
+    font-size: 0.9rem;
+    margin-left: 2rem;
+    line-height: 2rem;
+}
+
+
+.tab-switch {
+    height: 15vw;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background: #ffffff;
+    line-height: 10vw;
+    width: 100%;
+    padding: 0 15%;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.tab-switch view {
+     width: 40%; 
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+}
+
+.green-active {
+    color: #21b065;
+    border-bottom: 2px solid #21b065 !important;
+}
+
+
+/*  评论框组件  */
+.input_null{
+    color: #C9C9C9;
+}
+
+.release{
+    display: flex;
+    align-items: flex-end; /*底部对齐*/
+    justify-content: space-between; /*两端对齐*/
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 40rpx 0 30rpx 40rpx;
+    background-color: #F7F8F7;
+    font-size: 28rpx;
+    z-index: 999;
+}
+.release .txt{
+    width: 604rpx;
+    min-height: 34rpx;
+    max-height: 102rpx; /*最多显示三行*/
+    border-width: 15rpx 20rpx; /*使用padding与预期留白不一致，故使用border*/
+    border-style: solid;
+    border-color:  #ffffff;
+    line-height: 34rpx;
+    font-size: 28rpx;
+    background-color: #ffffff;
+    border-radius: 4rpx;
+}
+.release .submit{
+    width: 116rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    text-align: center;
+}
+.talk {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 3.5rem;
+    background: #ffffff;
+    position: fixed;
+    right: 4vw;
+    bottom: 25vw;
+    box-shadow: 0 0 2px 1px #f2f2f2;
+}
+.talk image {
+    width: 2rem;
+    height: 2rem;
+}
+/* button {
+    margin: 0.2rem 0 0.2rem 0 !important;
+} */

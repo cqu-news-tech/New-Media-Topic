@@ -1,0 +1,53 @@
+/**index.wxss**/
+
+.list {
+    height: 20vw;
+    padding: 3vw 4vw;
+    box-shadow: 0 0 2px 1px #f2f2f2;
+    border-radius: 0.2rem;
+    margin-bottom: 3vw;
+}
+
+.content {
+    width: 68%;
+    height: 14vw;
+}
+
+.icon {
+    height: 14vw;
+    width: 18%;
+    font-size: 0.7rem;
+}
+
+.tab-switch {
+    height: 15vw;
+    line-height: 10vw;
+    width: 95%;
+    margin: auto;
+}
+
+.tab-switch view {
+    width: 22%;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+}
+
+.blue-active {
+    color: #1296db;
+    border-bottom: 2px solid #1296db !important;
+}
+
+.green-active {
+    color: #21B065;
+    border-bottom: 2px solid #21B065 !important;
+}
+
+.yellow-active {
+    color: #FBB03B;
+    border-bottom: 2px solid #FBB03B !important;
+}
+
+.red-active {
+    color: #FE4E4E;
+    border-bottom: 2px solid #FE4E4E !important;
+}

@@ -1,0 +1,21 @@
+/* pages/topic/new/new.wxss */
+input, textarea {
+    box-sizing: border-box;
+    padding: 2vw 4vw;
+    margin-top: 4vw;
+    margin-bottom: 8vw;
+    border: 1px solid #f2f2f2;
+    border-radius: 0.2rem;
+}
+
+.title {
+    color: #1296db;
+    font-size: 0.9rem;
+}
+
+.inline-input input {
+    height: 12vw;
+}
+.area-input {
+    line-height: 1.5rem;
+}

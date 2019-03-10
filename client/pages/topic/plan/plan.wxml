@@ -1,0 +1,96 @@
+<!--pages/topic/plan.wxml-->
+<view class='container'>
+    <view class='tab-switch gray text flex-row flex-center'>
+        <view class="{{currentTab == 1? 'green-active':''}}" data-tab='1' bindtap='switchTab'>选题策划</view>
+        <view class="{{currentTab == 2? 'green-active':''}}" data-tab='2' bindtap='switchTab'>选题推进</view>
+    </view>
+
+    <!--  选题策划  -->
+    <block wx:if="{{currentTab == 1}}">
+        <view class='inline-input'>
+            <label class='title'>选题标题</label>
+            <input class="width-full" type='text' value='{{plan.title}}' placeholder="{{isAdmin? '未填写' : '请输入选题标题'}}" bindinput='inputText' data-post_type='plan' data-name='title' disabled='{{!canEdit}}'></input>
+        </view>
+        <view class='area-input'>
+            <label class='title'>选题详情</label>
+            <textarea class="width-full" value='{{plan.content}}' placeholder="{{isAdmin? '未填写' : '请输入选题详情'}}" bindinput='inputText' data-post_type='plan' data-name='content' disabled='{{!canEdit}}'></textarea>
+        </view>
+    </block>
+
+    <!--  选题推进  -->
+    <block wx:if="{{currentTab == 2}}">
+        <view class='inline-input'>
+            <label class='title'>负责人</label>
+            <input class="width-full" type='text' value='{{advance.director}}' placeholder="{{isAdmin? '未填写' : '请填写负责人'}}" bindinput='inputText' data-post_type='advance' data-name='director' disabled='{{!canEdit}}'></input>
+        </view>
+        <view class='inline-input'>
+            <label class='title'>预计完成时间</label>
+            <picker mode="date" class='width-full' value="{{advance.finish_time}}" start="2018-01-01" end="2018-12-31" bindchange="bindDateChange" data-post_type='advance' data-name='finish_time' disabled='{{!canEdit}}'>
+                <view class="picker">
+                    {{advance.finish_time?advance.finish_time : '未填写' }}
+                </view>
+            </picker>
+        </view>
+        <view class='inline-input'>
+            <label class='title'>预计阅读量</label>
+            <input class="width-full" type='number' value='{{advance.read_num}}' placeholder="{{isAdmin? '未填写' : '请输入预计阅读量'}}" bindinput='inputText' data-post_type='advance' data-name='read_num' disabled='{{!canEdit}}'></input>
+        </view>
+        <view class='area-input'>
+            <label class='title'>执行方案</label>
+            <textarea class="width-full" value='{{advance.content}}' placeholder="{{isAdmin? '未填写' : '请填写执行方案'}}" bindinput='inputText' data-post_type='advance' data-name='content' disabled='{{!canEdit}}'></textarea>
+        </view>
+    </block>
+
+
+    <!--  评论区  -->
+    <view class='comments-area width-full'>
+        <label class='title'>评论</label>
+        <block wx:if="{{ currentTab == 1 ? !planComments : !advanceComments}}">
+            <view class='flex-col flex-center nothing'>
+                <image src='../../../images/nothing.png'></image>
+                <view class='text'>这里什么也没有</view>
+            </view>
+        </block>
+        <block wx:for="{{currentTab == 1 ? planComments : advanceComments}}" wx:key="create_time">
+            <view class='comment width-full flex-col '>
+                <view class='icon flex-row flex-center'>
+                    <image src='../../../images/avatar.png'></image>
+                    <view class='name'>{{item.name}}</view>
+                </view>
+                <view class='content'>{{item.content}}</view>
+            </view>
+        </block>
+
+    </view>
+
+
+    <!--  页面操作按钮  -->
+    <view wx:if="{{canEdit || isAdmin}}" class='main-action flex-row flex-center'>
+        <!--  选题策划的操作区  -->
+        <block wx:if="{{currentTab == 1}}">
+            <button wx:if="{{canEdit && !isAdmin}}" class='main-btn width-full' hover-class='main-btn-tap' bindtap='postPlan'>更新选题</button>
+            <block wx:if="{{isAdmin}}">
+                <button class='sub-btn action-review' bindtap='review' disabled='{{!plan.post_id}}' data-expire='{{plan.is_expired}}'>操作</button>
+                <button class='sub-btn' bindtap='postPlan'>更新选题</button>
+            </block>
+        </block>
+
+        <!--  选题推进的操作区  -->
+        <block wx:if="{{currentTab == 2}}">
+            <button wx:if="{{canEdit && !isAdmin}}" class='main-btn width-full' hover-class='main-btn-tap' bindtap='postAdvance' disabled='{{plan.state != 2}}'>{{plan.state != 2 ? "审核通过才能提交推进表哦～" : "提交"}}</button>
+            <button wx:if="{{isAdmin}}" class='main-btn width-full' hover-class='main-btn-tap' bindtap='postAdvance'  disabled='{{plan.state != 2}}'>更新数据</button>
+            
+        </block>
+    </view>
+
+
+    <!--  评论框  -->
+    <view wx:if="{{post_id}}" class="talk flex-row flex-center flex-around" bindtap="bindReply">
+        <image src='../../../images/comment.png'></image>
+    </view>
+    <view class="release" hidden="{{!releaseFocus}}">
+        <textarea class="txt" bindinput='inputComment' fixed="true" maxlength="-1" placeholder-class='input_null' show-confirm-bar="false" cursor-spacing="15" auto-height="true" value='{{comment_content}}' focus="{{releaseFocus}}" placeholder="发表评论"></textarea>
+        <view class="submit blue" bindtap='postComment'>发送</view>
+    </view>
+
+</view>

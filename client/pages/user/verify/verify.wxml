@@ -1,0 +1,8 @@
+<!--pages/verify/verify.wxml-->
+<view class='container flex flex-col flex-center'>
+    <image src='../../../images/wait_review.png'></image>
+    <view class='blue tips'>用户身份审核中</view>
+    <view class='main-action flex-row flex-center'>
+            <button class='main-btn width-full' hover-class='main-btn-tap' bindtap='verify'>刷新审核状态</button>
+        </view>
+</view>

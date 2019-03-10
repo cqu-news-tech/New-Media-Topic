@@ -1,0 +1,22 @@
+<!--pages/user/mytopic/mytopic.wxml-->
+<view class='container'>
+    <block wx:for="{{topics}}" wx:key="post_id">
+        <view class='list width-full flex-row'>
+            <view class='content flex-col'  bindtap="navToPlan" data-uid="{{item.uid}}" data-post_id="{{item.post_id}}">
+                <view class='topic_info'>
+                    <view class='text'>{{item.title}}</view>
+                    <view class='text'>
+                        <text wx:if="{{item.state == 1 && !item.is_expired}}" class='blue'>待审核</text>
+                        <text wx:if="{{item.state == 2 && !item.is_expired}}" class='green'>审核通过</text>
+                        <text wx:if="{{item.state == 3 && !item.is_expired}}" class='yellow'>未通过</text>
+                        <text wx:if="{{item.is_expired}}" class='red'>已关闭</text>
+                    </view>
+                </view>
+                <view class='text gray'>{{item.create_time}}</view>
+            </view>
+            <view>
+                <button class="list-action {{item.is_expired? 'green-bg' : 'red-bg' }}" data-uid="{{item.uid}}" data-post_id="{{item.post_id}}" data-expired='{{item.is_expired}}' data-state='{{item.state}}' bindtap='changeExpire'>{{item.is_expired? "开启":"关闭"}}</button>
+            </view>
+        </view>
+    </block>
+</view>

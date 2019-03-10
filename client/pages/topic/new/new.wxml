@@ -1,0 +1,17 @@
+<!--pages/topic/new/new.wxml-->
+<view class='container'>
+
+    <!--  选题策划  -->
+        <view class='inline-input'>
+            <label class='title'>选题标题</label>
+            <input class="width-full" type='text' placeholder="请输入选题标题" bindinput='inputText'  data-name='title' ></input>
+        </view>
+        <view class='area-input'>
+            <label class='title'>选题详情</label>
+            <textarea class="width-full" value='{{plan.content}}' placeholder="请输入选题详情" bindinput='inputText'   data-name='content' ></textarea>
+        </view>
+        <view class='main-action flex-row flex-center'>
+            <button class='main-btn width-full' hover-class='main-btn-tap' bindtap='postPlan'>提交</button>
+        </view>
+
+</view>

@@ -1,0 +1,20 @@
+<!--pages/review/review.wxml-->
+<view class='container'>
+    <block wx:if="{{userList}}" wx:for="{{userList}}" wx:key="uid">
+        <view class='list width-full flex-row'>
+            <view class='content flex-col'>
+                <view class='blue'>{{item.name}}</view>
+                <view class='text gray'>{{item.phone}}</view>
+            </view>
+            <view class='flex-col flex-center'>
+                <button class='list-action green-bg' bindtap='userReview' data-uid="{{item.uid}}">通过</button>
+            </view>
+        </view>
+    </block>
+    <block wx:if="{{!userList}}">
+        <view class='flex-col flex-center nothing'>
+            <image src='../../../images/nothing.png'></image>
+            <view class='text'>这里什么也没有</view>
+        </view>
+    </block>
+</view>

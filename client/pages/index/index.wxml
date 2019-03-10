@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class='container'>
+    <view class='tab-switch gray text flex-row flex-center'>
+        <view class="{{currentTab == 1? 'blue-active':''}}" data-tab='1' bindtap='switchTab'>待审核</view>
+        <view class="{{currentTab == 2? 'green-active':''}}" data-tab='2' bindtap='switchTab'>审核通过</view>
+        <view class="{{currentTab == 3? 'yellow-active':''}}" data-tab='3' bindtap='switchTab'>未通过</view>
+        <view class="{{currentTab == 0? 'red-active':''}}" data-tab='0' bindtap='switchTab'>未提交</view>
+    </view>
+    <block wx:for="{{topic}}" wx:key="post_id">
+        <view wx:if="{{item.state == currentTab}}" data-uid="{{item.uid}}"  data-post_id="{{item.post_id}}"  bindtap="{{item.state == 0 ? '' : 'navToPlan'}}" class='list width-full flex-row'>
+            <view class='content flex-col'>
+                <view class='title width-full flex-row'>
+                    <view class='blue'>{{item.name}}</view>
+                    <view class='text gray'>{{item.create_time}}</view>
+                </view>
+                <view class='text'>{{item.title}}</view>
+            </view>
+            <view class='icon flex-col flex-center'>
+                <block wx:if="{{item.state == 0}}">
+                    <image src='../../images/no_commit.png'></image>
+                    <view class='red'>未提交</view>
+                </block>
+                <block wx:if="{{item.state == 1}}">
+                    <image src='../../images/wait_review.png'></image>
+                    <view class='blue'>待审核</view>
+                </block>
+                <block wx:if="{{item.state == 2}}">
+                    <image src='../../images/success.png'></image>
+                    <view class='green'>审核通过</view>
+                </block>
+                <block wx:if="{{item.state == 3}}">
+                    <image src='../../images/fail.png'></image>
+                    <view class='yellow'>未通过</view>
+                </block>
+            </view>
+        </view>
+    </block>
+</view>

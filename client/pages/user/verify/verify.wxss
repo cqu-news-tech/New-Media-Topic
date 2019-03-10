@@ -1,0 +1,10 @@
+/* pages/verify/verify.wxss */
+image {
+    width: 50vw;
+    height: 50vw;
+    margin-top: 15vw;
+}
+.tips {
+    margin-top: 15vw;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,14 @@
+<!--pages/register/register.wxml-->
+<view class='container'>
+    <view class='inline-input'>
+        <label class='title'>姓名</label>
+        <input class="width-full" value='{{name}}' type='text' placeholder="请输入姓名" bindinput='inputText' data-name='name'></input>
+    </view>
+    <view class='inline-input'>
+        <label class='title'>手机号码</label>
+        <input class="width-full"  value='{{phone}}' type='number' placeholder="请输入手机号码" bindinput='inputText' data-name='phone'></input>
+    </view>
+    <view class='main-action flex-row flex-center'>
+        <button class='main-btn width-full' hover-class='main-btn-tap' bindtap='postProfile'>提交</button>
+    </view>
+</view>
