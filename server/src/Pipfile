@@ -1,5 +1,5 @@
 [[source]]
-url = "https://pypi.org/simple"
+url = "https://mirrors.ustc.edu.cn/pypi/web/simple"
 verify_ssl = true
 name = "pypi"
 
@@ -10,6 +10,8 @@ flask-httpauth = "*"
 flask-wxapp = "*"
 pymysql = "*"
 flask-restful = "*"
+gunicorn = "*"
+gevent = "*"
 
 [dev-packages]
 

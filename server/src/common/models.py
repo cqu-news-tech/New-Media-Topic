@@ -7,11 +7,12 @@ from flask_httpauth import HTTPTokenAuth
 from itsdangerous import (TimedJSONWebSignatureSerializer as Serializer,
                           BadSignature, SignatureExpired)
 from flask_wxapp import WXApp
-import config
+# import config
 
 # initialization
 app = Flask(__name__)
-app.config.from_object(config)
+# app.config.from_object(config)
+app.config.from_pyfile('../config.py')
 
 # extensions
 wxapp = WXApp()
@@ -19,6 +20,8 @@ wxapp.init_app(app)
 db = SQLAlchemy(app)
 api = Api(app)
 auth = HTTPTokenAuth(scheme='Bearer')
+
+
 
 
 class User(db.Model):

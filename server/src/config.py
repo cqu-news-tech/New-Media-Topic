@@ -1,7 +1,8 @@
-DBname = "nm"
-DBuser = "nm"
+DBname = "newmedia"
+DBuser = "newmedia"
 DBpass = "maxoyed2013"
-DBhost = "127.0.0.2:3306"
+DBhost = "mariadb:3306"
+# DBhost = "172.31.0.3:3306"
 SQLALCHEMY_DATABASE_URI = \
  "mysql+pymysql://%s:%s@%s/%s?charset=utf8mb4" % \
  (DBuser, DBpass, DBhost, DBname)

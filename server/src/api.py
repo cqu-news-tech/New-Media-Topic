@@ -1,3 +1,4 @@
+# coding=utf-8
 from resources.user.login import Login as user_login
 from resources.user.profile import Profile as user_profile
 from resources.user.verify_token import VerifyToken as user_verify_token
@@ -35,5 +36,10 @@ api.add_resource(topic_advance_post, '/topic/advance/post')
 api.add_resource(topic_comments_list, '/topic/comments/list')
 api.add_resource(topic_comments_post, '/topic/comments/post')
 
+from common.models import db
+
+db.create_all()
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    # app.run(host='0.0.0.0', debug=True)
+    app.run()

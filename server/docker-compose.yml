@@ -1,0 +1,40 @@
+version: "3"
+volumes: 
+  db:
+services: 
+  mariadb:
+    image: mariadb:5.5.62-trusty
+    container_name: mariadb
+    volumes: 
+      - db:/var/lib/mysql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=maxoyed2013
+      - MYSQL_DATABASE=newmedia
+      - MYSQL_USER=newmedia
+      - MYSQL_PASSWORD=maxoyed2013
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    restart: always
+    ports: 
+      - 3306:3306
+
+  flask:
+    image: cqunews/newmedia:1.0-min
+    container_name: flask
+    links:
+      - mariadb
+    ports:
+      - 5000:5000
+    restart: always
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.8.5
+    container_name: phpmyadmin
+    restart: always
+    environment: 
+      - PMA_HOST=mariadb
+      - PMA_USER=root
+      - PMA_PASSWORD=maxoyed2013
+    links: 
+      - mariadb
+    ports:
+      - 8080:80
